@@ -1,7 +1,14 @@
 package com.mycompany.proyecto_progra_v2;
- // @author Fsociety
+ // @author MRobot404
 public class Empleados {
-
+ private String correo;
+   private String nombre;
+   private String apellido;
+   private String fecha_de_nacimiento;
+   private String ID;
+   private int telefono;
+   private String direccion;
+   private String contraseña;
     /**
      * @return the correo
      */
@@ -61,14 +68,14 @@ public class Empleados {
     /**
      * @return the ID
      */
-    public int getID() {
+    public String getID() {
         return ID;
     }
 
     /**
      * @param ID the ID to set
      */
-    public void setID(int ID) {
+    public void setID(String ID) {
         this.ID = ID;
     }
 
@@ -113,14 +120,7 @@ public class Empleados {
     public void setContraseña(String contraseña) {
         this.contraseña = contraseña;
     }
-   private String correo;
-   private String nombre;
-   private String apellido;
-   private String fecha_de_nacimiento;
-   private int ID;
-   private int telefono;
-   private String direccion;
-   private String contraseña;
+  
 
    
    

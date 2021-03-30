@@ -1,5 +1,5 @@
 package com.mycompany.proyecto_progra_v2;
-// @author Fsociety
+// @author MRobot404
 public class Menu extends javax.swing.JFrame {
     public Menu() {
         initComponents();
@@ -38,7 +38,7 @@ public class Menu extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(50, 40, 190, 24);
+        jButton1.setBounds(50, 40, 190, 25);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -49,8 +49,10 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel1MouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        //Boton provisional de crear cuenta vendedora -resuelvelo perro xd
-        
+        //Boton provisional de crear cuenta vendedora 
+        Admin_Crear_Cuenta crear=new Admin_Crear_Cuenta();
+        this.dispose();
+        crear.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
