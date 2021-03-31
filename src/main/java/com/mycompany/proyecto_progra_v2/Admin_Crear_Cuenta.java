@@ -12,13 +12,10 @@ public class Admin_Crear_Cuenta extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         btnIngresar.setEnabled(false);
         Empleados empleados = new Empleados();
-
         generador_id = (int) (Math.random() * 10000000);
         System.out.println(generador_id);
         TEXTID.setText(String.valueOf(generador_id));
-
     }
-
     public void Validar() {
         if (NombreField.getText().isEmpty()) {
             jLabel9.setText("Campo Requerido");
@@ -61,17 +58,13 @@ public class Admin_Crear_Cuenta extends javax.swing.JFrame {
         for (int i = 0; i < ingreso.length(); i++) {
             if (ingreso.charAt(i) >= 65 && ingreso.charAt(i) <= 90) {
                 mayus++;
-                System.out.println("Mayus " + mayus);
             } else if (ingreso.charAt(i) >= 97 && ingreso.charAt(i) <= 122) {
                 min++;
-                System.out.println("Minimo " + min);
             } else if (Character.isDigit(ingreso.charAt(i))) {
                 numero++;
-                System.out.println("numero " + numero);
             }
             contador = 0;
             contador = contador + ingreso.length();
-            System.out.println(contador);
         }
 
         if (ContraseñaField.getText().isEmpty()) {
@@ -89,8 +82,17 @@ public class Admin_Crear_Cuenta extends javax.swing.JFrame {
         } else {
             jLabel15.setText("");
         }
+        String contra1 = ContraseñaField.getText();
+        String contra2 = ContraseñaField1.getText();
+        if (ContraseñaField1.getText().isEmpty()) {
+            jLabel17.setText("Campo Requerido");
+        } else if (!contra2.equals(contra1)) {
+            jLabel17.setText("Contraseña invalida");
+        } else if (contra2.equals(contra1)) {
+            jLabel17.setText("");
+        }
 
-        if (NombreField.getText().isEmpty() || ApellidoField1.getText().isEmpty() || FechaField.getText().isEmpty() || TelefonoField.getText().isEmpty() || DireccionField.getText().isEmpty() || ApellidoField1.getText().isEmpty() || ContraseñaField.getText().isEmpty() || CorreoField1.getText().isEmpty() || jLabel15.getText().equals("Correo Invalido")) {
+        if (NombreField.getText().isEmpty() || ApellidoField1.getText().isEmpty() || FechaField.getText().isEmpty() || TelefonoField.getText().isEmpty() || DireccionField.getText().isEmpty() || ApellidoField1.getText().isEmpty() || ContraseñaField.getText().isEmpty() || CorreoField1.getText().isEmpty() || jLabel15.getText().equals("Correo Invalido") || jLabel8.getText().equals("Contraseña invalidad") || ContraseñaField1.getText().isEmpty() || jLabel17.getText().equals("Contraseña invalida")) {
             btnIngresar.setEnabled(false);
         } else {
             btnIngresar.setEnabled(true);
@@ -121,6 +123,7 @@ public class Admin_Crear_Cuenta extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
@@ -128,6 +131,9 @@ public class Admin_Crear_Cuenta extends javax.swing.JFrame {
         CorreoField1 = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
+        jLabel16 = new javax.swing.JLabel();
+        ContraseñaField1 = new javax.swing.JTextField();
+        jLabel17 = new javax.swing.JLabel();
 
         jButton2.setText("jButton2");
 
@@ -212,6 +218,13 @@ public class Admin_Crear_Cuenta extends javax.swing.JFrame {
         jLabel10.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 0, 0));
 
+        jButton1.setText("Menú");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         jLabel11.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 0, 0));
 
@@ -238,6 +251,17 @@ public class Admin_Crear_Cuenta extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
+
+        jLabel16.setText("Contraseña: ");
+
+        ContraseñaField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                ContraseñaField1KeyReleased(evt);
+            }
+        });
+
+        jLabel17.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(255, 0, 0));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -303,12 +327,20 @@ public class Admin_Crear_Cuenta extends javax.swing.JFrame {
                                 .addGap(145, 145, 145)
                                 .addComponent(btnIngresar)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton3)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel16)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ContraseñaField1, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton3)
+                .addGap(13, 13, 13))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -360,11 +392,19 @@ public class Admin_Crear_Cuenta extends javax.swing.JFrame {
                         .addComponent(jLabel7)
                         .addComponent(ContraseñaField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 141, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel16)
+                        .addComponent(ContraseñaField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 104, Short.MAX_VALUE)
+                .addComponent(btnIngresar)
+                .addGap(48, 48, 48)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnIngresar)
+                    .addComponent(jButton1)
                     .addComponent(jButton3))
-                .addGap(84, 84, 84))
+                .addContainerGap())
         );
 
         pack();
@@ -435,6 +475,7 @@ public class Admin_Crear_Cuenta extends javax.swing.JFrame {
         TelefonoField.setText("");
         DireccionField.setText("");
         ContraseñaField.setText("");
+        ContraseñaField1.setText("");
         JOptionPane.showMessageDialog(this, "Usuario registrado exitosamente");
 
     }//GEN-LAST:event_btnIngresarActionPerformed
@@ -451,10 +492,23 @@ public class Admin_Crear_Cuenta extends javax.swing.JFrame {
         l.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void ContraseñaField1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ContraseñaField1KeyReleased
+        // TODO add your handling code here:
+        Validar();
+    }//GEN-LAST:event_ContraseñaField1KeyReleased
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        Menu l = new Menu();
+        l.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField ApellidoField1;
     private javax.swing.JTextField ContraseñaField;
+    private javax.swing.JTextField ContraseñaField1;
     private javax.swing.JTextField CorreoField1;
     private javax.swing.JTextField DireccionField;
     private javax.swing.JTextField FechaField;
@@ -462,6 +516,7 @@ public class Admin_Crear_Cuenta extends javax.swing.JFrame {
     private javax.swing.JTextField TEXTID;
     private javax.swing.JTextField TelefonoField;
     private javax.swing.JButton btnIngresar;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
@@ -471,6 +526,8 @@ public class Admin_Crear_Cuenta extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

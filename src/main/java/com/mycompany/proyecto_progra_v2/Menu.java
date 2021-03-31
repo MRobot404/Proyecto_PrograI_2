@@ -12,6 +12,7 @@ public class Menu extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(800, 800));
@@ -40,6 +41,15 @@ public class Menu extends javax.swing.JFrame {
         getContentPane().add(jButton1);
         jButton1.setBounds(50, 40, 190, 25);
 
+        jButton2.setText("Consultar, Modificar y Eliminar cuenta vendedora");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2);
+        jButton2.setBounds(250, 40, 350, 25);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -55,8 +65,16 @@ public class Menu extends javax.swing.JFrame {
         crear.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        Admin_RUD_Cuenta_Vendedora c=new Admin_RUD_Cuenta_Vendedora();
+        c.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
