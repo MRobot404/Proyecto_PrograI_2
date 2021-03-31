@@ -81,10 +81,28 @@ public class Login extends javax.swing.JFrame {
             this.dispose();
             Menu menu=new Menu();
             menu.setVisible(true);
+             
         }else{
-            JOptionPane.showMessageDialog(this,"A surgido un error con los datos vuelve a intentarlo");
+             boolean usuarioEncontrado=false;
+            for (Empleados u:Main.usuarios) {
+                if (u.getContraseña().equals(Contraseña)) {
+              
+                
+                 usuarioEncontrado=true;
+                    break;
+                }
+            }
+            if (usuarioEncontrado) {
+                this.dispose();
+            }else{
+              JOptionPane.showMessageDialog(this,"A surgido un error con los datos vuelve a intentarlo");
             jTextField1.setText("");
             jPasswordField1.setText("");
+            }
+            
+            
+            
+           
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 

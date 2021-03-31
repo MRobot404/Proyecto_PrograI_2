@@ -6,7 +6,7 @@ public class Empleados {
    private String apellido;
    private String fecha_de_nacimiento;
    private String ID;
-   private int telefono;
+   private String telefono;
    private String direccion;
    private String contraseña;
     /**
@@ -82,14 +82,14 @@ public class Empleados {
     /**
      * @return the telefono
      */
-    public int getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
 
     /**
      * @param telefono the telefono to set
      */
-    public void setTelefono(int telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
 
@@ -120,6 +120,8 @@ public class Empleados {
     public void setContraseña(String contraseña) {
         this.contraseña = contraseña;
     }
+
+   
   
 
    
