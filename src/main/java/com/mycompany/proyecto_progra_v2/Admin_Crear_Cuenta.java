@@ -16,6 +16,7 @@ public class Admin_Crear_Cuenta extends javax.swing.JFrame {
         System.out.println(generador_id);
         TEXTID.setText(String.valueOf(generador_id));
     }
+
     public void Validar() {
         if (NombreField.getText().isEmpty()) {
             jLabel9.setText("Campo Requerido");
@@ -455,29 +456,41 @@ public class Admin_Crear_Cuenta extends javax.swing.JFrame {
         String telefono = TelefonoField.getText();
         String direccion = DireccionField.getText();
         String contraseña = ContraseñaField.getText();
+        boolean ingresado = false;
 
-        Empleados emple = new Empleados();
-        emple.setID(ID);
-        emple.setNombre(nombre);
-        emple.setApellido(apellido);
-        emple.setCorreo(correo);
-        emple.setFecha_de_nacimiento(fechanacimiento);
-        emple.setDireccion(direccion);
-        emple.setTelefono(telefono);
-        emple.setContraseña(contraseña);
-        Main.usuarios.add(emple);
-        generador_id = (int) (Math.random() * 10000000);
-        CorreoField1.setText("");
-        TEXTID.setText(String.valueOf(generador_id));
-        NombreField.setText("");
-        ApellidoField1.setText("");
-        FechaField.setText("");
-        TelefonoField.setText("");
-        DireccionField.setText("");
-        ContraseñaField.setText("");
-        ContraseñaField1.setText("");
-        JOptionPane.showMessageDialog(this, "Usuario registrado exitosamente");
+        for (Empleados u : Main.usuarios) {
+            if (u.getID().equals(ID)) {
+                ingresado = true;
+                break;
+            }
 
+        }
+        if (ingresado == true) {
+          JOptionPane.showMessageDialog(this, "Usuario registrado anteriormente");
+        } else {
+
+            Empleados emple = new Empleados();
+            emple.setID(ID);
+            emple.setNombre(nombre);
+            emple.setApellido(apellido);
+            emple.setCorreo(correo);
+            emple.setFecha_de_nacimiento(fechanacimiento);
+            emple.setDireccion(direccion);
+            emple.setTelefono(telefono);
+            emple.setContraseña(contraseña);
+            Main.usuarios.add(emple);
+            generador_id = (int) (Math.random() * 10000000);
+            CorreoField1.setText("");
+            TEXTID.setText(String.valueOf(generador_id));
+            NombreField.setText("");
+            ApellidoField1.setText("");
+            FechaField.setText("");
+            TelefonoField.setText("");
+            DireccionField.setText("");
+            ContraseñaField.setText("");
+            ContraseñaField1.setText("");
+            JOptionPane.showMessageDialog(this, "Usuario registrado exitosamente");
+        }
     }//GEN-LAST:event_btnIngresarActionPerformed
 
     private void FechaFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_FechaFieldKeyReleased
