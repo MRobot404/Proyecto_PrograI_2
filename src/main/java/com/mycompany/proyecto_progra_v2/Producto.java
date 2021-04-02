@@ -2,7 +2,10 @@ package com.mycompany.proyecto_progra_v2;
 // @author MRobot404
 
 public class Producto {
-
+   private float PrecioUnitario;
+    private String NombreProducto;
+    private String DescripcionProducto;
+    private int CantidadVenta;
     /**
      * @return the PrecioUnitario
      */
@@ -59,8 +62,5 @@ public class Producto {
         this.CantidadVenta = CantidadVenta;
     }
 
-    private float PrecioUnitario;
-    private String NombreProducto;
-    private String DescripcionProducto;
-    private int CantidadVenta;
+ 
 }

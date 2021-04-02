@@ -13,6 +13,7 @@ public class Menu extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(800, 800));
@@ -30,7 +31,7 @@ public class Menu extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(740, 10, 70, 40);
+        jLabel1.setBounds(620, 10, 70, 40);
 
         jButton1.setText("Crear cuenta vendedora");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -49,6 +50,15 @@ public class Menu extends javax.swing.JFrame {
         });
         getContentPane().add(jButton2);
         jButton2.setBounds(250, 40, 350, 25);
+
+        jButton3.setText(" Crear,consultar y modificar productos");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton3);
+        jButton3.setBounds(50, 110, 310, 40);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -72,9 +82,17 @@ public class Menu extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        Admin_CRUD_Productos c=new Admin_CRUD_Productos();
+        c.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton3ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
