@@ -308,7 +308,40 @@ public class Admin_RUD_Cuenta_Vendedora extends javax.swing.JFrame {
 
     private void ModificarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificarButtonActionPerformed
         //Boton Modificar
-        
+         int c;
+         Empleados aux;
+        String correo= txtCorreo.getText();
+        String nombre = txtNombre.getText();
+       String apellido= txtApellido.getText();
+        String fecha = txtFecha.getText();
+        String ID= txtID.getText();
+       String telefono= txtTelefono.getText();
+       String Direccion= txtDireccion.getText();
+       String contraseña= txtContraseña.getText();
+    
+         try {
+           c=jTable1.getSelectedRow();
+           aux=Main.usuarios.get(c);
+           aux.setNombre(nombre);
+           aux.setApellido(apellido);
+           aux.setCorreo(correo);
+           aux.setFecha_de_nacimiento(fecha);
+           aux.setID(ID);
+           aux.setTelefono(telefono);
+           aux.setDireccion(Direccion);
+           aux.setContraseña(contraseña);
+        CargaAutomatica();
+             txtCorreo.setText("");
+        txtNombre.setText("");
+        txtApellido.setText("");
+        txtFecha.setText("");
+        txtID.setText("");
+        txtTelefono.setText("");
+        txtDireccion.setText("");
+        txtContraseña.setText("");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Escoger una fila");
+        }
         
     }//GEN-LAST:event_ModificarButtonActionPerformed
 
