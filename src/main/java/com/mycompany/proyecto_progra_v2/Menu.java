@@ -3,96 +3,128 @@ package com.mycompany.proyecto_progra_v2;
 public class Menu extends javax.swing.JFrame {
     public Menu() {
         initComponents();
-        setLocationRelativeTo(null);
+        
     }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        escritorio = new javax.swing.JDesktopPane();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        Crear = new javax.swing.JMenuItem();
+        RUDVendedora = new javax.swing.JMenuItem();
+        ProductosCRUD = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(800, 800));
-        setMinimumSize(new java.awt.Dimension(800, 800));
-        setUndecorated(true);
-        getContentPane().setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 0, 30)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("X");
-        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+        jMenu1.setText("Empleados ");
+
+        Crear.setText("Crear cuenta");
+        Crear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CrearActionPerformed(evt);
+            }
+        });
+        jMenu1.add(Crear);
+
+        RUDVendedora.setText("Consultar,Modificar y eliminar cuenta");
+        RUDVendedora.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RUDVendedoraActionPerformed(evt);
+            }
+        });
+        jMenu1.add(RUDVendedora);
+
+        jMenuBar1.add(jMenu1);
+
+        ProductosCRUD.setText("Productos");
+        ProductosCRUD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ProductosCRUDActionPerformed(evt);
+            }
+        });
+
+        jMenuItem1.setText("Crear,Consultar, Modificar productos");
+        ProductosCRUD.add(jMenuItem1);
+
+        jMenuBar1.add(ProductosCRUD);
+
+        jMenu3.setText("Salir");
+        jMenu3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel1MouseClicked(evt);
+                jMenu3MouseClicked(evt);
             }
         });
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(620, 10, 70, 40);
-
-        jButton1.setText("Crear cuenta vendedora");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jMenu3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jMenu3ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1);
-        jButton1.setBounds(50, 40, 190, 25);
+        jMenuBar1.add(jMenu3);
 
-        jButton2.setText("Consultar, Modificar y Eliminar cuenta vendedora");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton2);
-        jButton2.setBounds(250, 40, 350, 25);
+        setJMenuBar(jMenuBar1);
 
-        jButton3.setText(" Crear,consultar y modificar productos");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton3);
-        jButton3.setBounds(50, 110, 310, 40);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(escritorio, javax.swing.GroupLayout.DEFAULT_SIZE, 1500, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(escritorio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 979, Short.MAX_VALUE)
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
-        //Boton Salida
-        this.dispose();
-    }//GEN-LAST:event_jLabel1MouseClicked
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        //Boton provisional de crear cuenta vendedora 
-        Admin_Crear_Cuenta crear=new Admin_Crear_Cuenta();
-        this.dispose();
-        crear.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void CrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CrearActionPerformed
         // TODO add your handling code here:
-        Admin_RUD_Cuenta_Vendedora c=new Admin_RUD_Cuenta_Vendedora();
-        c.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jButton2ActionPerformed
+     ADMIN_Crear_cuenta_Vendedora v=new ADMIN_Crear_cuenta_Vendedora();
+     escritorio.add(v);
+     v.show();
+        
+        
+    }//GEN-LAST:event_CrearActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void RUDVendedoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RUDVendedoraActionPerformed
         // TODO add your handling code here:
-        Admin_CRUD_Productos c=new Admin_CRUD_Productos();
-        c.setVisible(true);
+        ADMIN_RUD_Cuenta_Vendedor v=new ADMIN_RUD_Cuenta_Vendedor();
+        escritorio.add(v);
+        v.show();
+    }//GEN-LAST:event_RUDVendedoraActionPerformed
+
+    private void jMenu3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu3ActionPerformed
+        // TODO add your handling code here:
         this.dispose();
-    }//GEN-LAST:event_jButton3ActionPerformed
+        Login v=new Login();
+        v.setVisible(true);
+    }//GEN-LAST:event_jMenu3ActionPerformed
+
+    private void jMenu3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu3MouseClicked
+        // TODO add your handling code here:
+        this.dispose();
+        Login v=new Login();
+        v.setVisible(true);
+    }//GEN-LAST:event_jMenu3MouseClicked
+
+    private void ProductosCRUDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProductosCRUDActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_ProductosCRUDActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JMenuItem Crear;
+    private javax.swing.JMenu ProductosCRUD;
+    private javax.swing.JMenuItem RUDVendedora;
+    private javax.swing.JDesktopPane escritorio;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     // End of variables declaration//GEN-END:variables
 }

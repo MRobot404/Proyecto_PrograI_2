@@ -1,22 +1,17 @@
 package com.mycompany.proyecto_progra_v2;
 // @author MRobot404
-
 import javax.swing.JOptionPane;
-
-public class Admin_Crear_Cuenta extends javax.swing.JFrame {
-
-    public static int generador_id;
-
-    public Admin_Crear_Cuenta() {
+public class ADMIN_Crear_cuenta_Vendedora extends javax.swing.JInternalFrame {
+  public static int generador_id;
+    public ADMIN_Crear_cuenta_Vendedora() {
         initComponents();
-        setLocationRelativeTo(null);
         btnIngresar.setEnabled(false);
         Empleados empleados = new Empleados();
         generador_id = (int) (Math.random() * 10000000);
         System.out.println(generador_id);
         TEXTID.setText(String.valueOf(generador_id));
     }
-
+    
     public void Validar() {
         if (NombreField.getText().isEmpty()) {
             jLabel9.setText("Campo Requerido");
@@ -101,18 +96,30 @@ public class Admin_Crear_Cuenta extends javax.swing.JFrame {
 
     }
 
+   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton2 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        CorreoField1 = new javax.swing.JTextField();
         NombreField = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
         FechaField = new javax.swing.JTextField();
+        jLabel16 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        ContraseñaField1 = new javax.swing.JTextField();
         ApellidoField1 = new javax.swing.JTextField();
+        jLabel17 = new javax.swing.JLabel();
         TEXTID = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         TelefonoField = new javax.swing.JTextField();
@@ -121,39 +128,38 @@ public class Admin_Crear_Cuenta extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         ContraseñaField = new javax.swing.JTextField();
         btnIngresar = new javax.swing.JButton();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        CorreoField1 = new javax.swing.JTextField();
-        jLabel15 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
-        jLabel16 = new javax.swing.JLabel();
-        ContraseñaField1 = new javax.swing.JTextField();
-        jLabel17 = new javax.swing.JLabel();
 
-        jButton2.setText("jButton2");
+        setClosable(true);
+        setResizable(true);
+        setTitle("Crear cuenta vendedora");
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(400, 600));
-        setMinimumSize(new java.awt.Dimension(400, 600));
-        setUndecorated(true);
+        jLabel8.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 0, 0));
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 0, 30)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("X");
-        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel1MouseClicked(evt);
-            }
-        });
+        jLabel9.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 0, 0));
+
+        jLabel10.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 0, 0));
+
+        jLabel11.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 0, 0));
+
+        jLabel12.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 0, 0));
+
+        jLabel13.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 0, 0));
+
+        jLabel14.setText("Correo:");
 
         jLabel2.setText("Nombre: ");
+
+        CorreoField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                CorreoField1KeyReleased(evt);
+            }
+        });
 
         NombreField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -161,7 +167,17 @@ public class Admin_Crear_Cuenta extends javax.swing.JFrame {
             }
         });
 
+        jLabel15.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(255, 0, 0));
+
         jLabel3.setText("Apellido;");
+
+        jButton3.setText("LogOut");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         FechaField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -169,13 +185,24 @@ public class Admin_Crear_Cuenta extends javax.swing.JFrame {
             }
         });
 
+        jLabel16.setText("Contraseña: ");
+
         jLabel4.setText("Fecha de nacimineto: ");
+
+        ContraseñaField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                ContraseñaField1KeyReleased(evt);
+            }
+        });
 
         ApellidoField1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 ApellidoField1KeyReleased(evt);
             }
         });
+
+        jLabel17.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(255, 0, 0));
 
         TEXTID.setEditable(false);
 
@@ -210,69 +237,10 @@ public class Admin_Crear_Cuenta extends javax.swing.JFrame {
             }
         });
 
-        jLabel8.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 0, 0));
-
-        jLabel9.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 0, 0));
-
-        jLabel10.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 0, 0));
-
-        jButton1.setText("Menú");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        jLabel11.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(255, 0, 0));
-
-        jLabel12.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(255, 0, 0));
-
-        jLabel13.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(255, 0, 0));
-
-        jLabel14.setText("Correo:");
-
-        CorreoField1.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                CorreoField1KeyReleased(evt);
-            }
-        });
-
-        jLabel15.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(255, 0, 0));
-
-        jButton3.setText("LogOut");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-
-        jLabel16.setText("Contraseña: ");
-
-        ContraseñaField1.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                ContraseñaField1KeyReleased(evt);
-            }
-        });
-
-        jLabel17.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        jLabel17.setForeground(new java.awt.Color(255, 0, 0));
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(TEXTID, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(4, 4, 4)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -319,14 +287,9 @@ public class Admin_Crear_Cuenta extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel7)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(ContraseñaField, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(145, 145, 145)
-                                .addComponent(btnIngresar)))
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ContraseñaField, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -336,22 +299,26 @@ public class Admin_Crear_Cuenta extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(152, 152, 152)
+                .addComponent(btnIngresar)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton3)
-                .addGap(13, 13, 13))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jButton3)
+                        .addGap(13, 13, 13))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(TEXTID, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(TEXTID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(15, 15, 15)
+                .addContainerGap()
+                .addComponent(TEXTID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel2)
@@ -363,7 +330,7 @@ public class Admin_Crear_Cuenta extends javax.swing.JFrame {
                         .addComponent(ApellidoField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel3))
                     .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34)
+                .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(FechaField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -399,27 +366,42 @@ public class Admin_Crear_Cuenta extends javax.swing.JFrame {
                         .addComponent(jLabel16)
                         .addComponent(ContraseñaField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 104, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(btnIngresar)
-                .addGap(48, 48, 48)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addComponent(jButton3)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
-        //Boton Salida
-        this.dispose();
-    }//GEN-LAST:event_jLabel1MouseClicked
+    private void CorreoField1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CorreoField1KeyReleased
+        // TODO add your handling code here:
+        Validar();
+    }//GEN-LAST:event_CorreoField1KeyReleased
 
     private void NombreFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NombreFieldKeyReleased
         // TODO add your handling code here:
         Validar();
     }//GEN-LAST:event_NombreFieldKeyReleased
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        Login l = new Login();
+        l.setVisible(true);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void FechaFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_FechaFieldKeyReleased
+        // TODO add your handling code here:
+        Validar();
+    }//GEN-LAST:event_FechaFieldKeyReleased
+
+    private void ContraseñaField1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ContraseñaField1KeyReleased
+        // TODO add your handling code here:
+        Validar();
+    }//GEN-LAST:event_ContraseñaField1KeyReleased
 
     private void ApellidoField1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ApellidoField1KeyReleased
         // TODO add your handling code here:
@@ -441,11 +423,6 @@ public class Admin_Crear_Cuenta extends javax.swing.JFrame {
         Validar();
     }//GEN-LAST:event_ContraseñaFieldKeyReleased
 
-    private void CorreoField1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CorreoField1KeyReleased
-        // TODO add your handling code here:
-        Validar();
-    }//GEN-LAST:event_CorreoField1KeyReleased
-
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
         // TODO add your handling code here:
         String correo = CorreoField1.getText();
@@ -466,7 +443,7 @@ public class Admin_Crear_Cuenta extends javax.swing.JFrame {
 
         }
         if (ingresado == true) {
-          JOptionPane.showMessageDialog(this, "Usuario registrado anteriormente");
+            JOptionPane.showMessageDialog(this, "Usuario registrado anteriormente");
         } else {
 
             Empleados emple = new Empleados();
@@ -493,30 +470,6 @@ public class Admin_Crear_Cuenta extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnIngresarActionPerformed
 
-    private void FechaFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_FechaFieldKeyReleased
-        // TODO add your handling code here:
-        Validar();
-    }//GEN-LAST:event_FechaFieldKeyReleased
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-        this.dispose();
-        Login l = new Login();
-        l.setVisible(true);
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void ContraseñaField1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ContraseñaField1KeyReleased
-        // TODO add your handling code here:
-        Validar();
-    }//GEN-LAST:event_ContraseñaField1KeyReleased
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        this.dispose();
-        Menu l = new Menu();
-        l.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField ApellidoField1;
@@ -529,10 +482,7 @@ public class Admin_Crear_Cuenta extends javax.swing.JFrame {
     private javax.swing.JTextField TEXTID;
     private javax.swing.JTextField TelefonoField;
     private javax.swing.JButton btnIngresar;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;

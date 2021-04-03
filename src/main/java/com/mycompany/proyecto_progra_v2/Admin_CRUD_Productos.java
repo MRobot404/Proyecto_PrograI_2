@@ -331,7 +331,9 @@ public class Admin_CRUD_Productos extends javax.swing.JFrame {
         if (seleccionar == JFileChooser.APPROVE_OPTION) {
             File archivo = seleccionarArchivo.getSelectedFile();
             ExportarArchivo(archivo);
+            JOptionPane.showMessageDialog(this, "Exportado exitosamente");
         }
+        
     }//GEN-LAST:event_ExportarButtonActionPerformed
 
     private void ExportarArchivo(File archivo) {
@@ -365,7 +367,7 @@ public class Admin_CRUD_Productos extends javax.swing.JFrame {
     private void ImportarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ImportarButtonActionPerformed
         // TODO add your handling code here:
         JFileChooser seleccionarArchivo = new JFileChooser();
-        FileNameExtensionFilter filtro = new FileNameExtensionFilter("Archivos csv", "csv");
+        FileNameExtensionFilter filtro = new FileNameExtensionFilter("csv", "csv");
         seleccionarArchivo.setFileFilter(filtro);
         int seleccionar = seleccionarArchivo.showOpenDialog(this);
         if (seleccionar == JFileChooser.APPROVE_OPTION) {
