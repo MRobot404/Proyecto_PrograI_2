@@ -388,7 +388,7 @@ public class Admin_CRUD_Productos extends javax.swing.JFrame {
             String linea;
 
             while ((linea = br.readLine()) != null) {
-                String arreglo[] = linea.split("|");
+                String arreglo[] = linea.split(",");
                 if (arreglo.length == 4) {
                     u.setPrecioUnitario(Float.valueOf(arreglo[0]));
                     u.setNombreProducto(arreglo[1]);

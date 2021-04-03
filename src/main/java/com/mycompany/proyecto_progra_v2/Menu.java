@@ -49,6 +49,11 @@ public class Menu extends javax.swing.JFrame {
         });
 
         jMenuItem1.setText("Crear,Consultar, Modificar productos");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
         ProductosCRUD.add(jMenuItem1);
 
         jMenuBar1.add(ProductosCRUD);
@@ -114,8 +119,15 @@ public class Menu extends javax.swing.JFrame {
 
     private void ProductosCRUDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProductosCRUDActionPerformed
         // TODO add your handling code here:
-        
+       
     }//GEN-LAST:event_ProductosCRUDActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+         ADMIN_CRUD_Producto v=new ADMIN_CRUD_Producto();
+        escritorio.add(v);
+        v.show();
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem Crear;
