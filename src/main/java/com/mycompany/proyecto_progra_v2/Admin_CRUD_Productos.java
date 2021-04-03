@@ -1,8 +1,16 @@
 package com.mycompany.proyecto_progra_v2;
 //@author MRobot404
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
@@ -51,6 +59,8 @@ public class Admin_CRUD_Productos extends javax.swing.JFrame {
         DescricionFIeld = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         CantidadField = new javax.swing.JTextField();
+        ExportarButton = new javax.swing.JButton();
+        ImportarButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -120,6 +130,20 @@ public class Admin_CRUD_Productos extends javax.swing.JFrame {
         jLabel5.setText("Cantidad  disponible:");
         jLabel5.setToolTipText("");
 
+        ExportarButton.setText("Exportar");
+        ExportarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ExportarButtonActionPerformed(evt);
+            }
+        });
+
+        ImportarButton.setText("Importar ");
+        ImportarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ImportarButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -142,6 +166,10 @@ public class Admin_CRUD_Productos extends javax.swing.JFrame {
                         .addComponent(IngresarButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(ModificarButton)
+                        .addGap(225, 225, 225)
+                        .addComponent(ExportarButton)
+                        .addGap(18, 18, 18)
+                        .addComponent(ImportarButton)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
@@ -188,11 +216,19 @@ public class Admin_CRUD_Productos extends javax.swing.JFrame {
                     .addComponent(CantidadField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 102, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(55, 55, 55)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ModificarButton)
-                    .addComponent(IngresarButton))
-                .addGap(25, 25, 25)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(55, 55, 55)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(ModificarButton)
+                            .addComponent(IngresarButton))
+                        .addGap(25, 25, 25))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(ExportarButton)
+                            .addComponent(ImportarButton))
+                        .addGap(37, 37, 37)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton3)
                     .addComponent(jButton1))
@@ -225,23 +261,23 @@ public class Admin_CRUD_Productos extends javax.swing.JFrame {
         // Ingresar productos 
         Float Precio = Float.valueOf(PrecioField.getText());
         String Nombre = NombreField.getText();
-        String Descripcion=DescricionFIeld.getText();
-        int Cantidad= Integer.parseInt(CantidadField.getText());
+        String Descripcion = DescricionFIeld.getText();
+        int Cantidad = Integer.parseInt(CantidadField.getText());
         boolean ingresado = false;
-          for (Producto u : Main.lista) {
-           if (u.getNombreProducto().equals(Nombre)) {
+        for (Producto u : Main.lista) {
+            if (u.getNombreProducto().equals(Nombre)) {
                 ingresado = true;
                 break;
             }
         }
         if (ingresado == true) {
-          JOptionPane.showMessageDialog(this, "Producto registrado anteriormente");
+            JOptionPane.showMessageDialog(this, "Producto registrado anteriormente");
         } else {
-            Producto productos=new Producto();
+            Producto productos = new Producto();
             productos.setNombreProducto(Nombre);
-           productos.setPrecioUnitario(Precio);
-           productos.setDescripcionProducto(Descripcion);
-           productos.setCantidadVenta(Cantidad);
+            productos.setPrecioUnitario(Precio);
+            productos.setDescripcionProducto(Descripcion);
+            productos.setCantidadVenta(Cantidad);
             Main.lista.add(productos);
             NombreField.setText("");
             PrecioField.setText("");
@@ -255,24 +291,24 @@ public class Admin_CRUD_Productos extends javax.swing.JFrame {
     private void ModificarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificarButtonActionPerformed
         // Boton de modificar
         int c;
-         Producto aux;
-          Float Precio = Float.valueOf(PrecioField.getText());
+        Producto aux;
+        Float Precio = Float.valueOf(PrecioField.getText());
         String Nombre = NombreField.getText();
-        String Descripcion=DescricionFIeld.getText();
-        int Cantidad= Integer.parseInt(CantidadField.getText());
-         try {
-           c=jTable1.getSelectedRow();
-           aux=Main.lista.get(c);
-           aux.setNombreProducto(Nombre);
-           aux.setPrecioUnitario(Precio);
-           aux.setDescripcionProducto(Descripcion);
-           aux.setCantidadVenta(Cantidad);
-           NombreField.setText("");
+        String Descripcion = DescricionFIeld.getText();
+        int Cantidad = Integer.parseInt(CantidadField.getText());
+        try {
+            c = jTable1.getSelectedRow();
+            aux = Main.lista.get(c);
+            aux.setNombreProducto(Nombre);
+            aux.setPrecioUnitario(Precio);
+            aux.setDescripcionProducto(Descripcion);
+            aux.setCantidadVenta(Cantidad);
+            NombreField.setText("");
             PrecioField.setText("");
             DescricionFIeld.setText("");
             CantidadField.setText("");
-        CargaAutomatica();
-            
+            CargaAutomatica();
+
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Escoger una fila");
         }
@@ -287,10 +323,100 @@ public class Admin_CRUD_Productos extends javax.swing.JFrame {
         CantidadField.setText(String.valueOf(jTable1.getValueAt(seleccionar, 3)));
     }//GEN-LAST:event_jTable1MouseClicked
 
+    private void ExportarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExportarButtonActionPerformed
+        JFileChooser seleccionarArchivo = new JFileChooser();
+        FileNameExtensionFilter filtro = new FileNameExtensionFilter("csv", "csv");
+        seleccionarArchivo.setFileFilter(filtro);
+        int seleccionar = seleccionarArchivo.showOpenDialog(this);
+        if (seleccionar == JFileChooser.APPROVE_OPTION) {
+            File archivo = seleccionarArchivo.getSelectedFile();
+            ExportarArchivo(archivo);
+        }
+    }//GEN-LAST:event_ExportarButtonActionPerformed
+
+    private void ExportarArchivo(File archivo) {
+        FileWriter fichero = null;
+        PrintWriter pw = null;
+
+        try {
+            fichero = new FileWriter(archivo);
+            pw = new PrintWriter(fichero);
+            for (Producto u : Main.lista) {
+                String linea = String.valueOf(u.getPrecioUnitario()) + "|" + u.getNombreProducto() + "|" + u.getDescripcionProducto() + "|" + String.valueOf(u.getCantidadVenta());
+               pw.println(linea);
+            }
+        } catch (Exception ex) {
+        ex.printStackTrace();
+        }
+        finally{
+            try {
+                if (fichero!=null) {
+                    fichero.close();
+                }
+            } catch (Exception ex) {
+            ex.printStackTrace();
+            }
+            
+    }
+        
+
+    }
+
+    private void ImportarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ImportarButtonActionPerformed
+        // TODO add your handling code here:
+        JFileChooser seleccionarArchivo = new JFileChooser();
+        FileNameExtensionFilter filtro = new FileNameExtensionFilter("Archivos csv", "csv");
+        seleccionarArchivo.setFileFilter(filtro);
+        int seleccionar = seleccionarArchivo.showOpenDialog(this);
+        if (seleccionar == JFileChooser.APPROVE_OPTION) {
+            File archivo = seleccionarArchivo.getSelectedFile();
+            CargarArchivo(archivo);
+        }
+    }//GEN-LAST:event_ImportarButtonActionPerformed
+
+    public void CargarArchivo(File archivo) {
+        FileReader fr = null;
+        BufferedReader br = null;
+
+        try {
+            fr = new FileReader(archivo);
+            br = new BufferedReader(fr);
+
+            Producto u = new Producto();
+            String linea;
+
+            while ((linea = br.readLine()) != null) {
+                String arreglo[] = linea.split("|");
+                if (arreglo.length == 4) {
+                    u.setPrecioUnitario(Float.valueOf(arreglo[0]));
+                    u.setNombreProducto(arreglo[1]);
+                    u.setDescripcionProducto(arreglo[2]);
+                    u.setCantidadVenta(Integer.valueOf(arreglo[3]));
+                    Main.lista.add(u);
+                }
+
+            }
+            CargaAutomatica();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            try {
+                if (fr != null) {
+                    fr.close();
+                }
+            } catch (Exception ex) {
+                ex.printStackTrace();
+
+            }
+        }
+
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField CantidadField;
     private javax.swing.JTextField DescricionFIeld;
+    private javax.swing.JButton ExportarButton;
+    private javax.swing.JButton ImportarButton;
     private javax.swing.JButton IngresarButton;
     private javax.swing.JButton ModificarButton;
     private javax.swing.JTextField NombreField;
