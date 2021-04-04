@@ -17,6 +17,7 @@ public class Menu extends javax.swing.JFrame {
         RUDVendedora = new javax.swing.JMenuItem();
         ProductosCRUD = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -58,7 +59,10 @@ public class Menu extends javax.swing.JFrame {
 
         jMenuBar1.add(ProductosCRUD);
 
-        jMenu3.setText("Salir");
+        jMenu2.setText("jMenu2");
+        jMenuBar1.add(jMenu2);
+
+        jMenu3.setText("Cerrar Sesión");
         jMenu3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jMenu3MouseClicked(evt);
@@ -135,6 +139,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenuItem RUDVendedora;
     private javax.swing.JDesktopPane escritorio;
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
