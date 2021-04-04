@@ -18,6 +18,7 @@ public class Menu extends javax.swing.JFrame {
         ProductosCRUD = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
+        jMenu4 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -59,8 +60,11 @@ public class Menu extends javax.swing.JFrame {
 
         jMenuBar1.add(ProductosCRUD);
 
-        jMenu2.setText("jMenu2");
+        jMenu2.setText("Despacho de compras");
         jMenuBar1.add(jMenu2);
+
+        jMenu4.setText("Mi perfil");
+        jMenuBar1.add(jMenu4);
 
         jMenu3.setText("Cerrar Sesión");
         jMenu3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -141,6 +145,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     // End of variables declaration//GEN-END:variables
