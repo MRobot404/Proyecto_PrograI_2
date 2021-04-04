@@ -25,8 +25,8 @@ public class ADMIN_CRUD_Producto extends javax.swing.JInternalFrame {
 
         for (int i = 0; i < Main.lista.size(); i++) {
             Producto e = Main.lista.get(i);
-            modelo.setValueAt(e.getNombreProducto(), i, 1);
             modelo.setValueAt(e.getPrecioUnitario(), i, 0);
+            modelo.setValueAt(e.getNombreProducto(), i, 1);
             modelo.setValueAt(e.getDescripcionProducto(), i, 2);
             modelo.setValueAt(e.getCantidadVenta(), i, 3);
 
@@ -41,7 +41,7 @@ public class ADMIN_CRUD_Producto extends javax.swing.JInternalFrame {
             fichero = new FileWriter(archivo);
             pw = new PrintWriter(fichero);
             for (Producto u : Main.lista) {
-                String linea = String.valueOf(u.getPrecioUnitario()) + "," + u.getNombreProducto() + "," + u.getDescripcionProducto() + "," + String.valueOf(u.getCantidadVenta());
+                String linea = u.getPrecioUnitario() + "|" + u.getNombreProducto() + "|" + u.getDescripcionProducto() + "|" + u.getCantidadVenta();
                pw.println(linea);
             }
         } catch (Exception ex) {
@@ -69,16 +69,18 @@ public class ADMIN_CRUD_Producto extends javax.swing.JInternalFrame {
             fr = new FileReader(archivo);
             br = new BufferedReader(fr);
 
-            Producto u = new Producto();
+          
             String linea;
 
             while ((linea = br.readLine()) != null) {
-                String arreglo[] = linea.split(",");
+                  
+                String arreglo[] = linea.split("|");
                 if (arreglo.length == 4) {
+                    Producto u = new Producto();
                     u.setPrecioUnitario(Float.valueOf(arreglo[0]));
                     u.setNombreProducto(arreglo[1]);
                     u.setDescripcionProducto(arreglo[2]);
-                    u.setCantidadVenta(Integer.valueOf(arreglo[3]));
+                    u.setCantidadVenta(Integer.valueOf(arreglo[3]));   
                     Main.lista.add(u);
                 }
 
@@ -135,10 +137,7 @@ public class ADMIN_CRUD_Producto extends javax.swing.JInternalFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "Title 1", "Title 2", "Title 3", "Title 4"
