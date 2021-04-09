@@ -74,7 +74,7 @@ public class ADMIN_CRUD_Producto extends javax.swing.JInternalFrame {
 
             while ((linea = br.readLine()) != null) {
                   
-                String arreglo[] = linea.split("|");
+                String arreglo[] = linea.split("\\|");
                 if (arreglo.length == 4) {
                     Producto u = new Producto();
                     u.setPrecioUnitario(Float.valueOf(arreglo[0]));
