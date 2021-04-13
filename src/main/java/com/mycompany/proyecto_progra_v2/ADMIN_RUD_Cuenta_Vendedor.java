@@ -1,14 +1,25 @@
 package com.mycompany.proyecto_progra_v2;
 //@author MRobot404
 
+import com.sun.org.apache.bcel.internal.generic.AALOAD;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
+import javax.xml.parsers.*;
+import org.w3c.dom.Document;
+import org.w3c.dom.NodeList;
+import org.w3c.dom.Element;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.PrintWriter;
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import org.w3c.dom.Node;
 
- 
 public class ADMIN_RUD_Cuenta_Vendedor extends javax.swing.JInternalFrame {
-DefaultTableModel t;
+
+    DefaultTableModel t;
 
     public void CargaAutomatica() {
         t = new DefaultTableModel(new String[]{"Correo", "Nombre", "Apellido", "Fecha de Nacimiento", "ID", "Telefono", "Dirección", "Contraseña"}, Main.usuarios.size());
@@ -28,12 +39,12 @@ DefaultTableModel t;
             modelo.setValueAt(e.getContraseña(), i, 7);
         }
     }
+
     public ADMIN_RUD_Cuenta_Vendedor() {
         initComponents();
         CargaAutomatica();
     }
 
-   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -115,8 +126,18 @@ DefaultTableModel t;
         jLabel9.setText("Nombre: ");
 
         jButton1.setText("Importar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Exportar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -147,54 +168,53 @@ DefaultTableModel t;
                                 .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(732, 732, 732))
             .addGroup(layout.createSequentialGroup()
-                .addGap(446, 446, 446)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(410, 410, 410)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addGap(72, 72, 72)
-                            .addComponent(ModificarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(EliminarButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addContainerGap(731, Short.MAX_VALUE))
                         .addGroup(layout.createSequentialGroup()
-                            .addGap(271, 271, 271)
+                            .addGap(309, 309, 309)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(38, 38, 38)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(layout.createSequentialGroup()
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addGroup(layout.createSequentialGroup()
-                                                        .addGap(8, 8, 8)
-                                                        .addComponent(jLabel15)
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                        .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                    .addGroup(layout.createSequentialGroup()
-                                                        .addComponent(jLabel3)
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                        .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                .addGap(0, 113, Short.MAX_VALUE)
-                                                .addComponent(txtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(99, 99, 99)))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(jLabel13)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                                .addGap(8, 8, 8)
+                                                .addComponent(jLabel15)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jLabel3)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGap(419, 419, 419))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addGap(0, 118, Short.MAX_VALUE)
+                                        .addComponent(txtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(427, 427, 427)))
                                 .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(244, 244, 244)))
-                            .addGap(328, 328, 328))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addComponent(jScrollPane1)
+                                    .addComponent(jLabel13)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGap(72, 72, 72)
+                                            .addComponent(ModificarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(EliminarButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGap(271, 271, 271)
+                                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGap(0, 0, Short.MAX_VALUE)))
                             .addContainerGap()))))
         );
         layout.setVerticalGroup(
@@ -268,18 +288,18 @@ DefaultTableModel t;
         //Boton Modificar
         int c;
         Empleados aux;
-        String correo= txtCorreo.getText();
+        String correo = txtCorreo.getText();
         String nombre = txtNombre.getText();
-        String apellido= txtApellido.getText();
+        String apellido = txtApellido.getText();
         String fecha = txtFecha.getText();
-        String ID= txtID.getText();
-        String telefono= txtTelefono.getText();
-        String Direccion= txtDireccion.getText();
-        String contraseña= txtContraseña.getText();
+        String ID = txtID.getText();
+        String telefono = txtTelefono.getText();
+        String Direccion = txtDireccion.getText();
+        String contraseña = txtContraseña.getText();
 
         try {
-            c=jTable1.getSelectedRow();
-            aux=Main.usuarios.get(c);
+            c = jTable1.getSelectedRow();
+            aux = Main.usuarios.get(c);
             aux.setNombre(nombre);
             aux.setApellido(apellido);
             aux.setCorreo(correo);
@@ -308,9 +328,9 @@ DefaultTableModel t;
         int c;
         try {
             //Si funciona el eliminar
-            c=jTable1.getSelectedRow();
+            c = jTable1.getSelectedRow();
             Main.usuarios.remove(c);
-            JOptionPane.showMessageDialog(this,"Usuario Eliminado Exitosamente");
+            JOptionPane.showMessageDialog(this, "Usuario Eliminado Exitosamente");
             CargaAutomatica();
             txtCorreo.setText("");
             txtNombre.setText("");
@@ -322,9 +342,101 @@ DefaultTableModel t;
             txtContraseña.setText("");
         } catch (Exception e) {
             //Si no funciona
-            JOptionPane.showMessageDialog(this,"Seleccione una fila");
+            JOptionPane.showMessageDialog(this, "Seleccione una fila");
         }
     }//GEN-LAST:event_EliminarButton1ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // Archivos XML Leer
+        JFileChooser filechooser = new JFileChooser();
+        FileNameExtensionFilter filtro = new FileNameExtensionFilter("XML", "xml");
+        filechooser.setFileFilter(filtro);
+        int seleccion = filechooser.showOpenDialog(this);
+        if (seleccion == JFileChooser.APPROVE_OPTION) {
+            File archivo = filechooser.getSelectedFile();
+            ImportarXML(archivo);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // Guardar XML
+        JFileChooser filechooser = new JFileChooser();
+        FileNameExtensionFilter filtro = new FileNameExtensionFilter("XML", "xml");
+        filechooser.setFileFilter(filtro);
+        int seleccion = filechooser.showOpenDialog(this);
+        if (seleccion == JFileChooser.APPROVE_OPTION) {
+            File archivo = filechooser.getSelectedFile();
+            ExportarXML(archivo);
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void ExportarXML(File archivo) {
+        FileWriter fichero = null;
+        PrintWriter pw = null;
+
+        try {
+            fichero = new FileWriter(archivo);
+            pw = new PrintWriter(fichero);
+
+            pw.println("<vendedoras>");
+            for (Empleados p : Main.usuarios) {
+                pw.println("<vendedora id=\"" + p.getID() + "\">");
+                pw.println("<correo>" + p.getCorreo() + "</correo>");
+                pw.println("<nombre>" + p.getNombre() + "</nombre>");
+                pw.println("<apellido>" + p.getApellido() + "</apellido>");
+                pw.println("<fecha>" + p.getFecha_de_nacimiento() + "</fecha>");
+                pw.println("<telefono>" + p.getTelefono() + "</telefono>");
+                pw.println("<direccion>" + p.getDireccion() + "</direccion>");
+                pw.println("<password>" + p.getContraseña() + "</password>");
+                pw.println("</vendedora>");
+            }
+            pw.println("<vendedoras>");
+        } catch (Exception e) {
+        } finally {
+            try {
+                if (fichero != null) {
+                    fichero.close();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private void ImportarXML(File archivo) {
+        try {
+            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newDefaultInstance();
+            DocumentBuilder dbBuilder = dbFactory.newDocumentBuilder();
+            Document doc = dbBuilder.parse(archivo);
+            doc.getDocumentElement().normalize();
+
+            NodeList nList = doc.getElementsByTagName("vendedora");
+            for (int i = 0; i < nList.getLength(); i++) {
+
+                Node nNode = nList.item(i);
+
+                if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+                    
+                    Element e = (Element) nNode;
+                    
+                    Empleados p = new Empleados();
+                    p.setID(e.getAttributeNode("id").getTextContent());
+                    p.setCorreo(e.getElementsByTagName("correo").item(0).getTextContent());
+                    p.setNombre(e.getElementsByTagName("nombre").item(0).getTextContent());
+                    p.setApellido(e.getElementsByTagName("apellido").item(0).getTextContent());
+                    p.setDireccion(e.getElementsByTagName("direccion").item(0).getTextContent());
+                    p.setFecha_de_nacimiento(e.getElementsByTagName("fecha").item(0).getTextContent());
+                    p.setTelefono(e.getElementsByTagName("telefono").item(0).getTextContent());
+                    p.setContraseña(e.getElementsByTagName("password").item(0).getTextContent());
+                    Main.usuarios.add(p);
+                }
+            }
+            CargaAutomatica();
+        } catch (Exception e) {
+            e.printStackTrace();
+
+        }
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
