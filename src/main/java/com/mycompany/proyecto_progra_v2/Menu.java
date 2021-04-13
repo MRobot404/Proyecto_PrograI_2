@@ -23,6 +23,8 @@ public class Menu extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
+        escritorio.setForeground(new java.awt.Color(196, 195, 193));
+
         jMenu1.setText("Empleados ");
 
         Crear.setText("Crear cuenta");
@@ -61,9 +63,19 @@ public class Menu extends javax.swing.JFrame {
         jMenuBar1.add(ProductosCRUD);
 
         jMenu2.setText("Despacho de compras");
+        jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu2MouseClicked(evt);
+            }
+        });
         jMenuBar1.add(jMenu2);
 
         jMenu4.setText("Mi perfil");
+        jMenu4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu4MouseClicked(evt);
+            }
+        });
         jMenuBar1.add(jMenu4);
 
         jMenu3.setText("Cerrar Sesión");
@@ -136,6 +148,20 @@ public class Menu extends javax.swing.JFrame {
         escritorio.add(v);
         v.show();
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenu4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu4MouseClicked
+        // TODO add your handling code here:
+        Mi_Perfil mi=new Mi_Perfil();
+        escritorio.add(mi);
+        mi.show();
+    }//GEN-LAST:event_jMenu4MouseClicked
+
+    private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
+        // TODO add your handling code here:
+        Admin_Despacho_De_Compras despacho=new Admin_Despacho_De_Compras();
+        escritorio.add(despacho);
+        despacho.show();
+    }//GEN-LAST:event_jMenu2MouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem Crear;
