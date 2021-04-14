@@ -390,7 +390,7 @@ public class ADMIN_RUD_Cuenta_Vendedor extends javax.swing.JInternalFrame {
                 pw.println("<password>" + p.getContraseña() + "</password>");
                 pw.println("</vendedora>");
             }
-            pw.println("<vendedoras>");
+            pw.println("</vendedoras>");
         } catch (Exception e) {
         } finally {
             try {
