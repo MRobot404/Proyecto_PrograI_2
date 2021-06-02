@@ -167,7 +167,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenuItem Crear;
     private javax.swing.JMenu ProductosCRUD;
     private javax.swing.JMenuItem RUDVendedora;
-    private javax.swing.JDesktopPane escritorio;
+    javax.swing.JDesktopPane escritorio;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;

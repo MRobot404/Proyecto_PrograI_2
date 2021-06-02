@@ -45,12 +45,12 @@ public class Login extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(100, 380, 90, 25);
+        jButton1.setBounds(100, 380, 90, 24);
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Usuario");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(110, 90, 70, 15);
+        jLabel2.setBounds(110, 90, 70, 16);
 
         jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(jTextField1);
@@ -59,7 +59,7 @@ public class Login extends javax.swing.JFrame {
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Contraseña");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(110, 200, 70, 15);
+        jLabel3.setBounds(110, 200, 70, 16);
 
         jPasswordField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(jPasswordField1);
