@@ -1,25 +1,26 @@
 package com.mycompany.proyecto_progra_v2;
 // @author MRobot404
 public class Pedidos {
-private int ID;
+private String ID;
 private String Nombre;
 private int telefono;
 private String direccion;
+private int nit;
 private float total;
 private String fecha;
 private String estado;
 
-    /**
+/**
      * @return the ID
      */
-    public int getID() {
+    public String getID() {
         return ID;
     }
 
     /**
      * @param ID the ID to set
      */
-    public void setID(int ID) {
+    public void setID(String ID) {
         this.ID = ID;
     }
 
@@ -105,6 +106,20 @@ private String estado;
      */
     public void setEstado(String estado) {
         this.estado = estado;
+    }
+
+    /**
+     * @return the nit
+     */
+    public int getNit() {
+        return nit;
+    }
+
+    /**
+     * @param nit the nit to set
+     */
+    public void setNit(int nit) {
+        this.nit = nit;
     }
 
 

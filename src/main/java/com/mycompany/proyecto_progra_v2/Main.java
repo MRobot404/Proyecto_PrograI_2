@@ -6,10 +6,12 @@ public class Main {
 public static ArrayList<Empleados>usuarios;
 public static ArrayList<Producto>lista;
 public static ArrayList<Pedidos>pedido;
+public static ArrayList<EstadoProductos>pedidos;
     public static void main(String[] args) {
         usuarios=new ArrayList<>();
         lista=new ArrayList<>();
         pedido=new ArrayList<>();
+        pedidos=new ArrayList<>();
         Login log=new Login();
         log.setVisible(true);
     

@@ -87,16 +87,16 @@ public class Login extends javax.swing.JFrame {
             for (Empleados u:Main.usuarios) {
                 if (u.getContraseña().equals(Contraseña) && u.getNombre().equals(Usuario)) {
                 
-                    BienvenidoUsuario bv=new BienvenidoUsuario(u);
+                    BienvenidoUsuario bv=new BienvenidoUsuario(u,u);
                  bv.setVisible(true);
                  usuarioEncontrado=true;
                     break;
                 }else if(u.getContraseña().equals(Contraseña) && u.getCorreo().equals(Usuario)){
-                  BienvenidoUsuario bv=new BienvenidoUsuario(u);
+                  BienvenidoUsuario bv=new BienvenidoUsuario(u,u);
                  bv.setVisible(true);
                     usuarioEncontrado=true;
                 }else if(u.getContraseña().equals(Contraseña) && u.getID().equals(Usuario)){
-                  BienvenidoUsuario bv=new BienvenidoUsuario(u);
+                  BienvenidoUsuario bv=new BienvenidoUsuario(u,u);
                  bv.setVisible(true);
                     usuarioEncontrado=true;
                 }
