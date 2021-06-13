@@ -158,7 +158,7 @@ public class Menu extends javax.swing.JFrame {
 
     private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
         // TODO add your handling code here:
-        Admin_Despacho_De_Compras despacho=new Admin_Despacho_De_Compras();
+        DespachoDeCompras despacho=new DespachoDeCompras();
         escritorio.add(despacho);
         despacho.show();
     }//GEN-LAST:event_jMenu2MouseClicked

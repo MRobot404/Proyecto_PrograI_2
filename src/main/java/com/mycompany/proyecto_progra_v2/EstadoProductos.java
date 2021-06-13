@@ -2,95 +2,101 @@ package com.mycompany.proyecto_progra_v2;
 // @author MRobot404
 
 public class EstadoProductos {
-    private String ID;
-    private float PrecioUnitario;
-    private String NombreProducto;
-    private String DescripcionProducto;
-    private int CantidadVenta;
-    private float total;
-
+    private float subtotal;
+    private float precio;
+    private String nombre;
+    private String Descripcion;
+    private int cantidad;
+    private int token;
+    
     /**
-     * @return the PrecioUnitario
+     * @return the subtotal
      */
-    public float getPrecioUnitario() {
-        return PrecioUnitario;
+    public float getSubtotal() {
+        return subtotal;
     }
 
     /**
-     * @param PrecioUnitario the PrecioUnitario to set
+     * @param subtotal the subtotal to set
      */
-    public void setPrecioUnitario(float PrecioUnitario) {
-        this.PrecioUnitario = PrecioUnitario;
+    public void setSubtotal(float subtotal) {
+        this.subtotal = subtotal;
     }
 
     /**
-     * @return the NombreProducto
+     * @return the precio
      */
-    public String getNombreProducto() {
-        return NombreProducto;
+    public float getPrecio() {
+        return precio;
     }
 
     /**
-     * @param NombreProducto the NombreProducto to set
+     * @param precio the precio to set
      */
-    public void setNombreProducto(String NombreProducto) {
-        this.NombreProducto = NombreProducto;
+    public void setPrecio(float precio) {
+        this.precio = precio;
     }
 
     /**
-     * @return the DescripcionProducto
+     * @return the nombre
      */
-    public String getDescripcionProducto() {
-        return DescripcionProducto;
+    public String getNombre() {
+        return nombre;
     }
 
     /**
-     * @param DescripcionProducto the DescripcionProducto to set
+     * @param nombre the nombre to set
      */
-    public void setDescripcionProducto(String DescripcionProducto) {
-        this.DescripcionProducto = DescripcionProducto;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     /**
-     * @return the CantidadVenta
+     * @return the Descripcion
      */
-    public int getCantidadVenta() {
-        return CantidadVenta;
+    public String getDescripcion() {
+        return Descripcion;
     }
 
     /**
-     * @param CantidadVenta the CantidadVenta to set
+     * @param Descripcion the Descripcion to set
      */
-    public void setCantidadVenta(int CantidadVenta) {
-        this.CantidadVenta = CantidadVenta;
+    public void setDescripcion(String Descripcion) {
+        this.Descripcion = Descripcion;
     }
 
     /**
-     * @return the total
+     * @return the cantidad
      */
-    public float getTotal() {
-        return total;
+    public int getCantidad() {
+        return cantidad;
     }
 
     /**
-     * @param total the total to set
+     * @param cantidad the cantidad to set
      */
-    public void setTotal(float total) {
-        this.total = total;
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
     }
 
     /**
-     * @return the ID
+     * @return the token
      */
-    public String getID() {
-        return ID;
+    public int getToken() {
+        return token;
     }
 
     /**
-     * @param ID the ID to set
+     * @param token the token to set
      */
-    public void setID(String ID) {
-        this.ID = ID;
+    public void setToken(int token) {
+        this.token = token;
     }
 
+    /**
+     * @return the token
+     */
+   
+    
+    
 }

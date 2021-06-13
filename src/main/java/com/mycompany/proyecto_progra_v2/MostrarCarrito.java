@@ -6,57 +6,62 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
 public class MostrarCarrito extends javax.swing.JInternalFrame {
-
+    
     public MostrarCarrito() {
         initComponents();
         CargaAutomatica();
         IDField.setText(BienvenidoUsuario.id2);
-
+        jTextField1.setText(String.valueOf(BienvenidoUsuario.token));
     }
-
+    
     public Float Precio;
     public static String Nombre;
     public static String Descripcion;
     public static int Cantidad;
     public static int CantidadResta;
+    public static float totaltotal;
+    public static float mediototal;
+    
     DefaultTableModel t;
-
+    
     public void CargaAutomatica() {
         t = new DefaultTableModel(new String[]{"Precio", "Nombre", "Descripción", "Cantidad"}, Main.lista.size());
         jTable1.setModel(t);
-
+        
         TableModel modelo = jTable1.getModel();
-
+        
         for (int i = 0; i < Main.lista.size(); i++) {
             Producto e = Main.lista.get(i);
             modelo.setValueAt(e.getPrecioUnitario(), i, 0);
             modelo.setValueAt(e.getNombreProducto(), i, 1);
             modelo.setValueAt(e.getDescripcionProducto(), i, 2);
             modelo.setValueAt(e.getCantidadVenta(), i, 3);
-
+            
         }
     }
-
+    
     public void Agregarproductos() {
-         Cantidad = Integer.parseInt(CantidadmenorField.getText());
-          Precio = Float.valueOf(PrecioField.getText());
-        EstadoProductos v=new EstadoProductos();
-            v.setNombreProducto(NombreField1.getText());
-            v.setDescripcionProducto(DescripcionField.getText());
-            v.setCantidadVenta(Cantidad);
-            v.setPrecioUnitario(Float.parseFloat(PrecioField.getText()));
-            v.setTotal(Cantidad * Precio);
-            v.setID(BienvenidoUsuario.id2);
-            System.out.println("Enviado");
-           
-           
-            Main.pedidos.add(v);
-            for (int i = 0; i <Main.pedidos.size(); i++) {
-                System.out.println(Main.pedidos.get(i).getID()+" " +Main.pedidos.get(i).getNombreProducto()+Main.pedidos.get(i).getDescripcionProducto()+Main.pedidos.get(i).getCantidadVenta()+Main.pedidos.get(i).getPrecioUnitario()+Main.pedidos.get(i).getTotal());
+        Cantidad = Integer.parseInt(CantidadmenorField.getText());
+        Precio = Float.valueOf(PrecioField.getText());
+        mediototal = Cantidad * Precio;
+        
+        EstadoProductos v = new EstadoProductos();
+        v.setNombre(NombreField1.getText());
+        v.setDescripcion(DescripcionField.getText());
+        v.setCantidad(Cantidad);
+        v.setPrecio(Float.parseFloat(PrecioField.getText()));
+        v.setSubtotal(mediototal);
+        v.setToken(BienvenidoUsuario.token);
+        totaltotal = totaltotal + mediototal;
+        System.out.println("Enviado");
+        
+        Main.pedidos.add(v);
+        for (int i = 0; i < Main.pedidos.size(); i++) {
+            System.out.println(Main.pedidos.get(i).getSubtotal() + " " + Main.pedidos.get(i).getPrecio() + " " + Main.pedidos.get(i).getNombre() + " " + Main.pedidos.get(i).getDescripcion() + " " + Main.pedidos.get(i).getCantidad() + " " + Main.pedidos.get(i).getToken());
         }
         
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -76,7 +81,7 @@ public class MostrarCarrito extends javax.swing.JInternalFrame {
         CantidadmenorField = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         IDField = new javax.swing.JTextField();
-        ActualizarButton = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
 
         setClosable(true);
         setTitle("Carrito");
@@ -140,12 +145,8 @@ public class MostrarCarrito extends javax.swing.JInternalFrame {
         IDField.setEditable(false);
         IDField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
-        ActualizarButton.setText("Actualizar");
-        ActualizarButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ActualizarButtonActionPerformed(evt);
-            }
-        });
+        jTextField1.setEditable(false);
+        jTextField1.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -165,21 +166,25 @@ public class MostrarCarrito extends javax.swing.JInternalFrame {
                     .addComponent(DescripcionField)
                     .addComponent(NombreField1)
                     .addComponent(CantidadField))
-                .addGap(44, 44, 44)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(CantidadmenorField, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(144, 144, 144)
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(IDField, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(44, 44, 44)
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(CantidadmenorField, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(144, 144, 144)
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(IDField, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(72, 72, 72))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(AgregarField, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(ActualizarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(192, 192, 192))
+                .addGap(295, 295, 295))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -203,20 +208,19 @@ public class MostrarCarrito extends javax.swing.JInternalFrame {
                         .addGap(29, 29, 29)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
-                            .addComponent(CantidadField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE))
+                            .addComponent(CantidadField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel6)
                             .addComponent(IDField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGap(53, 53, 53)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(AgregarField)
-                    .addComponent(ActualizarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33))
+                .addComponent(AgregarField)
+                .addGap(38, 38, 38))
         );
 
         pack();
@@ -234,14 +238,7 @@ public class MostrarCarrito extends javax.swing.JInternalFrame {
     private void AgregarFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarFieldActionPerformed
         // TODO add your handling code here:
         Agregarproductos();
-    }//GEN-LAST:event_AgregarFieldActionPerformed
-
-    private void CantidadFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CantidadFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CantidadFieldActionPerformed
-
-    private void ActualizarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActualizarButtonActionPerformed
-        // TODO add your handling code here:
+        
         int c;
         Producto aux;
         Precio = Float.valueOf(PrecioField.getText());
@@ -256,25 +253,26 @@ public class MostrarCarrito extends javax.swing.JInternalFrame {
             aux.setPrecioUnitario(Precio);
             aux.setDescripcionProducto(Descripcion);
             aux.setCantidadVenta(Cantidad - CantidadResta);
-           
-          
-           
-           
+            
             NombreField1.setText("");
             PrecioField.setText("");
             DescripcionField.setText("");
             CantidadField.setText("");
             CantidadmenorField.setText("");
+            
             CargaAutomatica();
-
+            
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Escoger una fila");
         }
-    }//GEN-LAST:event_ActualizarButtonActionPerformed
+    }//GEN-LAST:event_AgregarFieldActionPerformed
+
+    private void CantidadFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CantidadFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CantidadFieldActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton ActualizarButton;
     private javax.swing.JButton AgregarField;
     private javax.swing.JTextField CantidadField;
     javax.swing.JTextField CantidadmenorField;
@@ -290,5 +288,6 @@ public class MostrarCarrito extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

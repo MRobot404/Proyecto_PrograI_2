@@ -5,10 +5,11 @@ private String ID;
 private String Nombre;
 private int telefono;
 private String direccion;
-private int nit;
+private String nit;
 private float total;
 private String fecha;
 private String estado;
+private int token;
 
 /**
      * @return the ID
@@ -111,15 +112,29 @@ private String estado;
     /**
      * @return the nit
      */
-    public int getNit() {
+    public String getNit() {
         return nit;
     }
 
     /**
      * @param nit the nit to set
      */
-    public void setNit(int nit) {
+    public void setNit(String nit) {
         this.nit = nit;
+    }
+
+    /**
+     * @return the token
+     */
+    public int getToken() {
+        return token;
+    }
+
+    /**
+     * @param token the token to set
+     */
+    public void setToken(int token) {
+        this.token = token;
     }
 
 

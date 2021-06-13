@@ -1,8 +1,12 @@
 package com.mycompany.proyecto_progra_v2;
 // @author MRobot404
+
+import javax.swing.JOptionPane;
+
 public class BienvenidoUsuario extends javax.swing.JFrame {
 public static Empleados empleado,id;
 public static String id2;
+ public static int token;
     public BienvenidoUsuario(Empleados empleado,Empleados id) {
         this.empleado=empleado;
         this.id=id;
@@ -10,6 +14,9 @@ public static String id2;
          labelUsuario.setText(this.empleado.getNombre());
          jLabel1.setText(this.id.getID());
          id2=this.id.getID();
+         token=(int)(Math.random()*1000000);
+         System.out.println(token);
+         
          
     }
     
@@ -28,6 +35,7 @@ public static String id2;
         jMenu3 = new javax.swing.JMenu();
         jMenu5 = new javax.swing.JMenu();
         jMenu6 = new javax.swing.JMenu();
+        jMenu1 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1500, 1000));
@@ -67,6 +75,11 @@ public static String id2;
         jMenuBar1.add(Carrito);
 
         jMenu3.setText("Pedidos");
+        jMenu3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu3MouseClicked(evt);
+            }
+        });
         jMenuBar1.add(jMenu3);
 
         jMenu5.setText("Mi Perfil");
@@ -89,6 +102,14 @@ public static String id2;
             }
         });
         jMenuBar1.add(jMenu6);
+
+        jMenu1.setText("Generar Token");
+        jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu1MouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(jMenu1);
 
         setJMenuBar(jMenuBar1);
 
@@ -155,11 +176,25 @@ public static String id2;
         generar.show();
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
+    private void jMenu3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu3MouseClicked
+        // TODO add your handling code here:
+        MisPedidos pedido=new MisPedidos();
+        escritorio.add(pedido);
+        pedido.show();
+    }//GEN-LAST:event_jMenu3MouseClicked
+
+    private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
+        // TODO add your handling code here:
+        token=(int)(Math.random()*1000000);
+        JOptionPane.showMessageDialog(rootPane, "Su token "+token+" Ha sido Creado");
+    }//GEN-LAST:event_jMenu1MouseClicked
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu Carrito;
     public static javax.swing.JDesktopPane escritorio;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
